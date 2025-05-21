@@ -63,29 +63,4 @@
         alert("❌ There was a problem submitting your vote.");
     }
 });
-', {
-{
-        method: 'POST',
-        body: JSON.stringify({ studentId, name, president, vp }),
-        headers: { 'Content-Type': 'application/json' }
-      }).then(response => {
-        if (response.ok) {
-          alert("Your vote has been submitted.");
-          localStorage.setItem('hasVoted', 'true');
-        } else {
-          alert("There was a problem submitting your vote.");
-        }
-      });
-    }
 
-    function openAdmin() {
-      const code = prompt("Enter admin code:");
-      if (code === "admin123") {
-        window.location.href = "admin.html";
-      } else {
-        alert("Incorrect code.");
-      }
-    }
-  </script>
-</body>
-</html>
