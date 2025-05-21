@@ -43,24 +43,22 @@
         return;
       }
 
-      fetch('https://script.google.com/macros/s/AKfycbzIwl-bTRBXu4fA0zqP_0p6FVCX_ivhHTGzwPriITTB-DNgPoRSSMzQdkK9FMkv5ibe/exec', {
-    method: 'POST',
-    body: JSON.stringify({
-        studentId: studentId,
-        name: name,
-        president: president,
-        vp: vp
-    }),
-    headers: {
-        'Content-Type': 'application/json'
-    }
-})
-.then(response => {
-    if (response.ok) {
-        alert("✅ Your vote has been submitted.");
-        localStorage.setItem('hasVoted', 'true');
-    } else {
-        alert("❌ There was a problem submitting your vote.");
-    }
+      fetch('https://script.google.com/macros/s/AKfycbzlwl-bTRBXu4fA0zqP_0p6FVCX_ivhHTGzwPrilTTB-DNgPoRSSMzQdkK9FMkv5ibe/exec', {
+  method: 'POST',
+  body: JSON.stringify({
+    studentId: studentId,
+    name: name,
+    president: president,
+    vp: vp
+  }),
+  headers: {
+    'Content-Type': 'application/json'
+  }
+}).then(response => {
+  if (response.ok) {
+    alert("✅ Your vote has been submitted.");
+    localStorage.setItem('hasVoted', 'true');
+  } else {
+    alert("❌ There was a problem submitting your vote.");
+  }
 });
-
