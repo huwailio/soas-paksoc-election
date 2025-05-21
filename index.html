@@ -1,57 +1,20 @@
+<h1>SOAS PakSoc Election Voting</h1>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>SOAS PakSoc Election</title>
-    <script>
-        function submitVote() {
-            if (localStorage.getItem('hasVoted') === 'true') {
-                alert("You have already voted from this device.");
-                return;
-            }
+<input type="text" id="name" placeholder="Your full name"><br><br>
 
-            const name = document.getElementById('name').value;
-            const vote = document.getElementById('vote').value;
+<strong>President:</strong><br>
+<select id="presidentVote">
+  <option value="">Select a candidate</option>
+  <option value="Alishba Kirmani">Alishba Kirmani</option>
+  <option value="Subhan Saeed">Subhan Saeed</option>
+</select><br><br>
 
-            if (!name || !vote) {
-                alert("Please enter your name and select a candidate.");
-                return;
-            }
+<strong>Vice President:</strong><br>
+<select id="vpVote">
+  <option value="">Select a candidate</option>
+  <option value="Alizae Maalik">Alizae Maalik</option>
+  <option value="Subhan Saeed">Subhan Saeed</option>
+</select><br><br>
 
-            fetch('https://script.google.com/macros/s/PASTE_YOUR_DEPLOYED_SCRIPT_URL_HERE/exec', {
-                method: 'POST',
-                body: JSON.stringify({name: name, vote: vote}),
-                headers: { 'Content-Type': 'application/json' }
-            }).then(response => {
-                if (response.ok) {
-                    alert("Your vote has been submitted.");
-                    localStorage.setItem('hasVoted', 'true');
-                } else {
-                    alert("There was a problem submitting your vote.");
-                }
-            });
-        }
-
-        function openAdmin() {
-            const code = prompt("Enter admin code:");
-            if (code === "admin123") {
-                window.location.href = "admin.html";
-            } else {
-                alert("Incorrect code.");
-            }
-        }
-    </script>
-</head>
-<body>
-    <h1>SOAS PakSoc Election Voting</h1>
-    <input type="text" id="name" placeholder="Enter your name"><br><br>
-    <select id="vote">
-        <option value="">Select a candidate</option>
-        <option value="Candidate A">Candidate A</option>
-        <option value="Candidate B">Candidate B</option>
-        <option value="Candidate C">Candidate C</option>
-    </select><br><br>
-    <button onclick="submitVote()">Submit Vote</button><br><br>
-    <button onclick="openAdmin()">Admin Access</button>
-</body>
-</html>
+<button onclick="submitVote()">Submit Vote</button><br><br>
+<button onclick="openAdmin()">Admin Access</button>
